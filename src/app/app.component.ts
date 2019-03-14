@@ -6,8 +6,14 @@ import { Component } from '@angular/core';
   template: `<h1>{{title}}</h1>
   			<div [hidden]='todos.length'>Aucun élément</div>
   			<ul>
-  				<li *ngFor='let todo of todos; let i = index;'>
-  				({{i + 1}}) {{todo}}
+  				<li *ngFor='let todo of todos;
+  							let i = index;
+  							let odd = odd'>
+  					<hr *ngIf ='i'>
+  					<a href="http://google.fr/#q={{todo}}"
+  						target='_blank'>
+  						{{todo}}
+  					</a>
   				</li>
   			</ul>
   			<form (submit)='createTodo()'>
